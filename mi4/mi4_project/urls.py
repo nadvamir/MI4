@@ -29,5 +29,5 @@ urlpatterns = patterns('',
     url(r'^updbio/(?P<agent_id>\d+)/$', views.updBio, name='updbio'),
 
     # default
-    url(r'^$', lambda r: HttpResponseRedirect('mi4/login')),
+    url(r'^$', lambda r: HttpResponseRedirect('login')),
 )
