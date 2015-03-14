@@ -57,18 +57,38 @@
       <file leaf-file-name="populate_mi4.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/populate_mi4.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.52715653" vertical-offset="0" max-vertical-offset="645">
-              <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.9345048" vertical-offset="0" max-vertical-offset="690">
+              <caret line="39" column="4" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="4" />
               <folding>
-                <marker date="1426340792177" expanded="true" signature="554:588" placeholder="INSERT INTO ..." />
-                <marker date="1426340792177" expanded="true" signature="674:693" placeholder="SELECT * FRO..users..." />
-                <marker date="1426340792177" expanded="true" signature="760:776" placeholder="DROP TABLE u..." />
-                <marker date="1426340792177" expanded="true" signature="778:797" placeholder="DROP TABLE m..." />
-                <marker date="1426340792177" expanded="true" signature="799:817" placeholder="DROP TABLE c..." />
-                <marker date="1426340792177" expanded="true" signature="901:920" placeholder="SELECT usern..TABLE..." />
-                <marker date="1426340792177" expanded="true" signature="956:978" placeholder="SELECT * FRO..messages..." />
-                <marker date="1426340792177" expanded="true" signature="1014:1035" placeholder="SELECT * FRO..clients..." />
+                <marker date="1426343228833" expanded="true" signature="591:625" placeholder="INSERT INTO ..." />
+                <marker date="1426343228833" expanded="true" signature="722:741" placeholder="SELECT * FRO..users..." />
+                <marker date="1426343228833" expanded="true" signature="810:826" placeholder="DROP TABLE u..." />
+                <marker date="1426343228833" expanded="true" signature="828:847" placeholder="DROP TABLE m..." />
+                <marker date="1426343228833" expanded="true" signature="849:867" placeholder="DROP TABLE c..." />
+                <marker date="1426343228833" expanded="true" signature="1070:1089" placeholder="SELECT usern..TABLE..." />
+                <marker date="1426343228833" expanded="true" signature="1125:1147" placeholder="SELECT * FRO..messages..." />
+                <marker date="1426343228833" expanded="true" signature="1183:1204" placeholder="SELECT * FRO..clients..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tables.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tables.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="data.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="120">
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -93,6 +113,7 @@
         <option value="$PROJECT_DIR$/mi4/urls.py" />
         <option value="$PROJECT_DIR$/mi4_project/models.py" />
         <option value="$PROJECT_DIR$/mi4/settings.py" />
+        <option value="$PROJECT_DIR$/data.txt" />
         <option value="$PROJECT_DIR$/populate_mi4.py" />
       </list>
     </option>
@@ -317,6 +338,22 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/mi4/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="1365">
+          <caret line="39" column="18" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tables.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="626">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mi4/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
@@ -324,6 +361,14 @@
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="120">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -341,27 +386,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mi4/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="1365">
-          <caret line="39" column="18" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/populate_mi4.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.52715653" vertical-offset="0" max-vertical-offset="645">
-          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.9345048" vertical-offset="0" max-vertical-offset="690">
+          <caret line="39" column="4" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="4" />
           <folding>
-            <marker date="1426340792177" expanded="true" signature="554:588" placeholder="INSERT INTO ..." />
-            <marker date="1426340792177" expanded="true" signature="674:693" placeholder="SELECT * FRO..users..." />
-            <marker date="1426340792177" expanded="true" signature="760:776" placeholder="DROP TABLE u..." />
-            <marker date="1426340792177" expanded="true" signature="778:797" placeholder="DROP TABLE m..." />
-            <marker date="1426340792177" expanded="true" signature="799:817" placeholder="DROP TABLE c..." />
-            <marker date="1426340792177" expanded="true" signature="901:920" placeholder="SELECT usern..TABLE..." />
-            <marker date="1426340792177" expanded="true" signature="956:978" placeholder="SELECT * FRO..messages..." />
-            <marker date="1426340792177" expanded="true" signature="1014:1035" placeholder="SELECT * FRO..clients..." />
+            <marker date="1426343228833" expanded="true" signature="591:625" placeholder="INSERT INTO ..." />
+            <marker date="1426343228833" expanded="true" signature="722:741" placeholder="SELECT * FRO..users..." />
+            <marker date="1426343228833" expanded="true" signature="810:826" placeholder="DROP TABLE u..." />
+            <marker date="1426343228833" expanded="true" signature="828:847" placeholder="DROP TABLE m..." />
+            <marker date="1426343228833" expanded="true" signature="849:867" placeholder="DROP TABLE c..." />
+            <marker date="1426343228833" expanded="true" signature="1070:1089" placeholder="SELECT usern..TABLE..." />
+            <marker date="1426343228833" expanded="true" signature="1125:1147" placeholder="SELECT * FRO..messages..." />
+            <marker date="1426343228833" expanded="true" signature="1183:1204" placeholder="SELECT * FRO..clients..." />
           </folding>
         </state>
       </provider>

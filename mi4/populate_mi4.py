@@ -17,21 +17,24 @@ if len(sys.argv)==2:
         c.executescript(schema)
         conn.commit()
         csv_reader = csv.reader(open('data.txt'))
+        # for line in csv_reader:
+        #     if
         to_db = tuple([i.decode('utf-8') for i in line] for line in csv_reader)
-        to_db
         c.executemany("INSERT INTO users VALUES (?,?,?,?);", to_db)
-        
-
-
+        conn.commit()
         print "\ndatabase is set up\n"
         print c.execute("SELECT * FROM users").fetchall()
 
-    if mode == "tearDown":
+    elif mode == "tearDown":
         c.executescript("DROP TABLE users; DROP TABLE messages; DROP TABLE clients;")
         conn.commit()
         print "database cleared"
 
 else:
-	print c.execute("SELECT * FROM users;").fetchall()
+    # csv_reader = csv.reader(open('data.txt'))
+    # to_db = ""
+    # for line in csv_reader:
+    #     print line
+    print c.execute("SELECT * FROM users;").fetchall()
     print c.execute("SELECT * FROM messages;").fetchall()
     print c.execute("SELECT * FROM clients;").fetchall()
