@@ -2,21 +2,70 @@
 
 {% block title %}Dashboard{% endblock %}
 
+{% block body_block %}
 <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-       <div>
-           {% block messages_block %}{% endblock %}
-           <hr>
-           {% block compose_block %}{% endblock %}
+      <div class="col-md-2 main">
 
-       </div>
-    </div>
-      <div class="col-sm-3 col-sm-offset-3 col-md-2 col-md-offset-2 main">
-          {% block users_block %}{% endblock %}
+        {% if users %}
+            <h2>Agents</h2>
+            <ul>
+                {% for user in users %}
+                <li><a href="{% url 'bio' user.id %}">{{ user.username }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <strong>No users.</strong>
+        {% endif %}
+
           <hr>
-          {% block clients_block %}{% endblock %}
-      </div>
+
+        {% if clients %}
+            <h2>Clients</h2>
+            <ul>
+                {% for client in clients %}
+                <li><a href="{% url 'data' client.id %}">{{ client.name }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <strong>No clients.</strong>
+        {% endif %}
+
+    </div>
+    <div class="col-md-10 main">
+        <h2>Messages</h2>
+
+        <form role="form"  id="page_form" method="post" action="/mi4/message/{{user.id}}/">
+            {% csrf_token %}
+            {% for hidden in form.hidden_fields %}
+                {{ hidden }}
+            {% endfor %}
+
+            {% for field in form.visible_fields %}
+                {{ field.errors }}
+                {{ field.help_text }}<br/>
+                {{ field }}<br/>
+            {% endfor %}
+
+            <br/>
+            <button class="btn btn-primary" type="submit" name="submit">Send</button>
+        </form>
+
+       <hr>
+
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li><strong>{{ message.sender }} -> 
+                    {{ message.recipient }}: </strong>{{ message.content }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <strong>No messages.</strong>
+        {% endif %}
+
+    </div>
   </div>
 </div>
+{% endblock %}
 

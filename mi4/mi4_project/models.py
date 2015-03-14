@@ -12,19 +12,28 @@ class Agent:
     def __init__(self, row):
         self.id = row[0]
         self.bio = row[1]
+        self.username = row[2]
 
     # get an agent by user id
     @staticmethod
     def get(id):
         cursor = connection.cursor()
-        query = 'SELECT * FROM users WHERE id = ?'
-        return Agent(cursor.execute(query, id).fetchone())
+        query = 'SELECT u.id, bio, username FROM users, auth_user as u WHERE u.id = ? AND u.id = users.id'
+        return Agent(cursor.execute(query, (id,)).fetchone())
+
+    # get a list of agents
+    @staticmethod
+    def list():
+        cursor = connection.cursor()
+        query = 'SELECT id FROM auth_user'
+        return [Agent.get(row[0]) for row in
+                cursor.execute(query).fetchall()]
 
     # save to a database
     def save(self):
         cursor = connection.cursor()
         query = 'UPDATE users SET bio = ? WHERE id = ?'
-        cursor.execute(query, bio, id)
+        cursor.execute(query, (self.bio, self.id))
         connection.commit()
 
 # messages information
@@ -43,20 +52,21 @@ class Message:
     def get(id):
         cursor = connection.cursor()
         query = '''SELECT
-                    id, fromId, toId, message,
+                    messages.id, fromId, toId, message,
                     u1.username, u2.username
                 FROM messages, auth_user as u1,
                     auth_user as u2
                 WHERE fromID = u1.id AND
                     toID = u2.id AND
-                    (fromID = ? OR toID = ?)'''
-        return [Message(row) for row in cursor.execute(query, id, id).fetchall()]
+                    (fromID = ? OR toID = ?)
+                ORDER BY messages.id DESC'''
+        return [Message(row) for row in cursor.execute(query, (id, id)).fetchall()]
 
     # store a new message
     def save(self, id):
         cursor = connection.cursor()
         query = 'INSERT INTO messages VALUES (?, ?, ?, ?)'
-        cursor.execute(query, self.id, self.fromId, self.toId, self.message)
+        cursor.execute(query, (self.id, self.fromId, self.toId, self.message))
         connection.commit()
 
 # client information
@@ -79,7 +89,15 @@ class Client:
     def get(matr):
         cursor = connection.cursor()
         query = 'SELECT * FROM clients WHERE Matr = ?'
-        return Agent(cursor.execute(query, matr).fetchone())
+        return Client(cursor.execute(query, (matr,)).fetchone())
+
+    # list all clients
+    @staticmethod
+    def list():
+        cursor = connection.cursor()
+        query = 'SELECT matr FROM clients'
+        return [Client.get(row[0]) for row in
+                cursor.execute(query).fetchall()]
 
     # store updated information
     def save(self):
@@ -96,7 +114,7 @@ class Client:
                     passphrase = ?
                 WHERE 
                     matr = ?'''
-        cursor.execute(query,
+        cursor.execute(query, (
                 self.name,
                 self.surname,
                 self.DOB,
@@ -106,6 +124,6 @@ class Client:
                 self.undercoverName,
                 self.undercoverSurname,
                 self.passphrase,
-                self.matr)
+                self.matr))
         connection.commit()
 
