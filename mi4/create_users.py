@@ -1,4 +1,7 @@
-# copy this into the shell
+# run this from the shell
+# import create_users
+# after syncdb
+# before running other db scripts
 from django.contrib.auth.models import User
 
 user = User.objects.create_user('Jim', 'jim@jim.jim', 'Jim')
