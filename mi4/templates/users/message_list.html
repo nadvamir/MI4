@@ -1,0 +1,13 @@
+{% extends 'dashboard.html' %}
+
+{% block messages_block %}
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li><strong>User {% message.sender %}: </strong>{% message.content %}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <strong>No messages.</strong>
+    {% endif %}
+{% endblock %}
