@@ -2,10 +2,6 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 
-# Create your views here.
-def login(request):
-    return HttpResponse('text')
-
 # main screen: has messages, agents, users, and message box
 @login_required
 def dashboard(request):
