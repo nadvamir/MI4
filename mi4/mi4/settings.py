@@ -12,6 +12,11 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+# templates
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'templates'),
+)
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
@@ -55,6 +60,7 @@ WSGI_APPLICATION = 'mi4.wsgi.application'
 
 # logging in
 LOGIN_URL = '/mi4/login/'
+LOGIN_REDIRECT_URL = '/mi4/dashboard/'
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases

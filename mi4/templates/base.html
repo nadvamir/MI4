@@ -20,7 +20,6 @@
   </head>
 
   <body>
-    {% load rango_extras %}
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -30,14 +29,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/rango/">Rango</a>
+          <a class="navbar-brand" href="/mi4/dashboard/">Secret Site</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="{% url 'auth_login' %}">Login</a></li>
             {% if user.is_authenticated %}
-                <li><a href="{% url 'data' %}">Data</a></li>
-                <li><a href="{% url 'clients' %}">Clients</a></li>
+                <li><a href="/mi4/logout/">Logout</a></li>
+            {% else %}
+                <li><a href="{% url 'auth_login' %}">Login</a></li>
             {% endif %}
           </ul>
         </div>

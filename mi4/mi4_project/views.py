@@ -9,7 +9,7 @@ def login(request):
 # main screen: has messages, agents, users, and message box
 @login_required
 def dashboard(request):
-    pass
+    return HttpResponse('dashboard')
 
 # client info screen
 @login_required
