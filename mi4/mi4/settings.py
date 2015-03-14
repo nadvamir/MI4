@@ -53,6 +53,8 @@ ROOT_URLCONF = 'mi4.urls'
 
 WSGI_APPLICATION = 'mi4.wsgi.application'
 
+# logging in
+LOGIN_URL = '/mi4/login/'
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
