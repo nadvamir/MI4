@@ -86,8 +86,3 @@ def bio(request, agent_id):
 @login_required
 def updBio(request, agent_id):
     return HttpResponse('upd bio')
-
-# recipient page for updating data on clients
-@login_required
-def updData(request, client_id):
-    return HttpResponse('upd data')

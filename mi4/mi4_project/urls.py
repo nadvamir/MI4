@@ -27,8 +27,6 @@ urlpatterns = patterns('',
 
     # recipient page for updating bio
     url(r'^updbio/(?P<agent_id>\d+)/$', views.updBio, name='updbio'),
-    # recipient page for updating data on clients
-    url(r'^upddata/(?P<client_id>\d+)/$', views.updData, name='upddata'),
 
     # default
     url(r'^$', lambda r: HttpResponseRedirect('mi4/login')),
