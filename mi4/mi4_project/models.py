@@ -34,8 +34,18 @@ class Agent:
     def save(self):
         cursor = connection.cursor()
         query = 'UPDATE users SET bio = ? WHERE id = ?'
+        print self.bio
+        print self.id
         cursor.execute(query, (self.bio, self.id))
         connection.commit()
+
+    # convert to dicitonary
+    def toDict(self):
+        return {
+            'id': self.id,
+            'bio': self.bio,
+            'username': self.username
+        }
 
 # messages information
 class Message:

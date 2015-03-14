@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-md-12 main">
+          <h2>{{ username }}</h2>
+          <form role="form"  id="page_form" method="post"
+              action="/mi4/updbio/{{ id }}/">
+                {% csrf_token %}
+                <textarea class="form-control" name="bio" id="bio" rows=10>{{ bio }}</textarea>
+                <button class="btn btn-primary" type="submit" name="submit">Send</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

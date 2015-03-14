@@ -1,7 +1,9 @@
 from django.http import HttpResponse
 from django.http import HttpResponseNotFound
+from django.http import HttpResponseForbidden
 from django.template import RequestContext
 from django.shortcuts import render_to_response
+from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_protect
 from django import forms
@@ -42,7 +44,6 @@ def dashboard(request):
 
     context = RequestContext(request)
     context_dict = {
-        'user': request.user,
         'messages': messages,
         'users': users,
         'clients': clients,
@@ -74,15 +75,51 @@ def client(request, client_id):
 
     # show the data for edditing
     context = RequestContext(request)
-
     return render_to_response('client.html', client.toDict(), context)
 
 # agent bio screen
 @login_required
 def bio(request, agent_id):
-    return HttpResponse('bio')
+    agent = Agent.get(agent_id)
+    if None == agent:
+        return HttpResponseNotFound()
+
+    context = RequestContext(request)
+    return render_to_response('agent.html', agent.toDict(), context)
 
 # recipient page for updating bio
 @login_required
 def updBio(request, agent_id):
-    return HttpResponse('upd bio')
+    agent = Agent.get(agent_id)
+    if None == agent:
+        return HttpResponseNotFound()
+
+    if (int(agent_id) != request.user.id):
+        return HttpResponseForbidden()
+
+    if 'POST' == request.method:
+        # allowed tags
+        tags = [
+            'a', 'i', 'em', 'strong',
+            'b', 'br', 'p', 'div',
+            'h1', 'h2', 'h3', 'h4',
+            'small'
+        ]
+
+        # allowed attributes
+        attrs = {
+            'a': ['href'],
+        }
+
+        # update bio
+        agent = Agent((
+            agent_id,
+            bleach.clean(request.POST['bio'], tags=tags, attributes=attrs),
+            agent.username
+            ))
+        agent.save()
+
+        return redirect('/mi4/bio/' + agent_id + '/')
+
+    context = RequestContext(request)
+    return render_to_response('updbio.html', agent.toDict(), context)
