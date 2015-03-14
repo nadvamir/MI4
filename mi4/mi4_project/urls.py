@@ -9,12 +9,12 @@ urlpatterns = patterns('',
 
     # login screen
     url(r'^login/$', 'django.contrib.auth.views.login',
-        {'template_name': 'users/login.html'},
+        {'template_name': 'login.html'},
         name='auth_login'),
 
     # logout
     url(r'^logout/$', 'django.contrib.auth.views.logout',
-        {'template_name': 'users/login.html'},
+        {'template_name': 'login.html'},
         name='logout'),
 
     # main screen: has messages, agents, users, and message box
