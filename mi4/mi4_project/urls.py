@@ -25,8 +25,6 @@ urlpatterns = patterns('',
     # agent bio screen
     url(r'^bio/(?P<agent_id>\d+)/$', views.bio, name='bio'),
 
-    # recipient page for sending the message
-    url(r'^message/(?P<agent_id>\d+)/$', views.message, name='msg'),
     # recipient page for updating bio
     url(r'^updbio/(?P<agent_id>\d+)/$', views.updBio, name='updbio'),
     # recipient page for updating data on clients

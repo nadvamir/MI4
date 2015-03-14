@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-md-12 main">
+          <h2>{{ name }} {{ surname }}</h2>
+
+          <form role="form"  id="page_form" method="post"
+              action="/mi4/client/{{ matr }}/">
+            {% csrf_token %}
+            <input class="form-control" name="name" id="name" value="{{ name }}">
+            <input class="form-control" name="surname" id="surname" value="{{ surname }}">
+            <input class="form-control" name="DOB" id="DOB" value="{{ DOB }}">
+            <input class="form-control" name="email" id="email" value="{{ email }}">
+            <input class="form-control" name="contactPhone" id="contactPhone" value="{{ contactPhone }}">
+            <input class="form-control" name="role" id="role" value="{{ role }}">
+            <input class="form-control" name="undercoverName" id="undercoverName" value="{{ undercoverName }}">
+            <input class="form-control" name="undercoverSurname" id="undercoverSurname" value="{{ undercoverSurname }}">
+            <input class="form-control" name="passphrase" id="passphrase" value="{{ passphrase }}">
+
+            <button class="btn btn-primary" type="submit" name="submit">Send</button>
+        </form>
+
+    </div>
+  </div>
+</div>
+{% endblock %}
+

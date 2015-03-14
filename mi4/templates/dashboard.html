@@ -35,17 +35,14 @@
     <div class="col-md-10 main">
         <h2>Messages</h2>
 
-        <form role="form"  id="page_form" method="post" action="/mi4/message/{{user.id}}/">
+        <form role="form"  id="page_form" method="post" action="/mi4/dashboard/">
             {% csrf_token %}
-            {% for hidden in form.hidden_fields %}
-                {{ hidden }}
-            {% endfor %}
-
-            {% for field in form.visible_fields %}
-                {{ field.errors }}
-                {{ field.help_text }}<br/>
-                {{ field }}<br/>
-            {% endfor %}
+            <select class="form-control" name="toId" id="toId">
+                {% for user in users %}
+                <option value="{{ user.id }}">{{user.username}}</option>
+                {% endfor %}
+            </select>
+            <textarea name="msg" id="msg" class="form-control" placeholder="Write your message here"></textarea>
 
             <br/>
             <button class="btn btn-primary" type="submit" name="submit">Send</button>

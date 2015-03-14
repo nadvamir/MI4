@@ -19,7 +19,8 @@ class Agent:
     def get(id):
         cursor = connection.cursor()
         query = 'SELECT u.id, bio, username FROM users, auth_user as u WHERE u.id = ? AND u.id = users.id'
-        return Agent(cursor.execute(query, (id,)).fetchone())
+        row = cursor.execute(query, (id, )).fetchone()
+        return Agent(row) if None != row else None
 
     # get a list of agents
     @staticmethod
@@ -44,8 +45,9 @@ class Message:
         self.fromId = row[1]
         self.toId = row[2]
         self.message = row[3]
-        self.fromName = row[4]
-        self.toName = row[5]
+        if len(row) > 4:
+            self.fromName = row[4]
+            self.toName = row[5]
 
     # get a list of messages for a user
     @staticmethod
@@ -63,7 +65,7 @@ class Message:
         return [Message(row) for row in cursor.execute(query, (id, id)).fetchall()]
 
     # store a new message
-    def save(self, id):
+    def save(self):
         cursor = connection.cursor()
         query = 'INSERT INTO messages VALUES (?, ?, ?, ?)'
         cursor.execute(query, (self.id, self.fromId, self.toId, self.message))
@@ -89,7 +91,8 @@ class Client:
     def get(matr):
         cursor = connection.cursor()
         query = 'SELECT * FROM clients WHERE Matr = ?'
-        return Client(cursor.execute(query, (matr,)).fetchone())
+        row = cursor.execute(query, (matr, )).fetchone()
+        return Client(row) if None != row else None
 
     # list all clients
     @staticmethod
@@ -107,7 +110,7 @@ class Client:
                     surname = ?,
                     dob = ?,
                     email = ?,
-                    contactPhone = ?,
+                    contact_Phone = ?,
                     role = ?,
                     undercoverName = ?,
                     undercoverSurname = ?,
@@ -127,3 +130,16 @@ class Client:
                 self.matr))
         connection.commit()
 
+    def toDict(self):
+        return {
+            'matr': self.matr,
+            'name': self.name,
+            'surname': self.surname,
+            'DOB': self.DOB,
+            'email': self.email,
+            'contactPhone': self.contactPhone,
+            'role': self.role,
+            'undercoverName': self.undercoverName,
+            'undercoverSurname': self.undercoverSurname,
+            'passphrase': self.passphrase
+        }

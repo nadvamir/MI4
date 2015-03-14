@@ -1,1 +1,2 @@
 django==1.7
+bleach==1.4.1
