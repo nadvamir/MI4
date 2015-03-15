@@ -6,6 +6,7 @@ from django.shortcuts import render_to_response
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_protect
+from django.middleware.csrf import rotate_token
 from django import forms
 from models import *
 import re
@@ -15,6 +16,7 @@ import bleach
 @login_required
 @csrf_protect
 def dashboard(request):
+    rotate_token(request)
     if 'POST' == request.method:
         # insert a message
         toId = re.sub('/[^0-9]/', '', request.POST['toId'])
@@ -53,7 +55,9 @@ def dashboard(request):
 
 # client info screen
 @login_required
+@csrf_protect
 def client(request, client_id):
+    rotate_token(request)
     client = Client.get(client_id)
     if None == client:
         return HttpResponseNotFound()
@@ -89,7 +93,9 @@ def bio(request, agent_id):
 
 # recipient page for updating bio
 @login_required
+@csrf_protect
 def updBio(request, agent_id):
+    rotate_token(request)
     agent = Agent.get(agent_id)
     if None == agent:
         return HttpResponseNotFound()
