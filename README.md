@@ -1,1 +1,3 @@
 # MI4
+
+This code was written for the University of Glasgow Cyber Defense Exercise. The event run over the weekend. On Saturday students had to develop a secure web application (while writing their own SQL and hosting it from an infected virtual machine...), and on Sunday the red team of experienced pen-testers tore everything apart. This application did quite well overall, if you ignore that we did not have time to set up HTTPS and thus client passwords were stolen directly from clients themselves...
